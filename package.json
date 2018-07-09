@@ -2,12 +2,15 @@
   "description": "pageNote-web",
   "license": "MIT",
   "scripts": {
+    "server": "http-server . -p 8071 &",
+    "stop": "i don't how to stop it now, can not find it's PID with ps command",
     "build": "cross-env NODE_ENV=production webpack --config webpack.config.js",
     "dev": "cross-env NODE_ENV=development webpack-dev-server --config webpack.config.js",
     "fix": "eslint --fix .",
     "test": "eslint .",
     "initcz": "commitizen init cz-conventional-changelog --save --save-exact",
-    "watch": "cross-env NODE_ENV=development webpack --watch"
+    "watch": "cross-env NODE_ENV=development webpack --watch",
+    "rsync": "rsync -zaP ./index.html ./dist ./favicon.ico root@178.128.0.181:/root/nj/pageNote-web-vue/"
   },
   "dependencies": {
     "axios": "^0.18.0",
