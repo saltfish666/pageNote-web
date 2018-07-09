@@ -6,6 +6,7 @@
           <a :href="url">
               <button class="btn btn-visit smaller-btn">visit</button>
             </a>
+          <button class="btn btn-danger smaller-btn">delete</button>
         </div>
         <div class="card-body smaller-body">
           <h5 class="card-title smaller-title">{{note.path}}</h5>
@@ -45,7 +46,7 @@
     color: black;
   }
   .smaller-btn {
-    padding: 0.1rem 0.7rem;
+    padding: 0rem 0.2rem;
   }
   .smaller-header {
     padding: 0.4rem 0.4rem;
