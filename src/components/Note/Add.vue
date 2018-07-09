@@ -29,6 +29,23 @@
 
 <script type="text/javascript">
 	export default {
-		name: 'Add'
+		name: 'Add',
+    data () {
+      return {
+        willAddDomain:null,
+        willAddPath:null,
+        willAddContent:null
+      }
+    },
+    methods: {
+      addNote () {
+        let note = {
+          domain: this.willAddDomain,
+          path: this.willAddPath,
+          content: this.willAddContent
+        }
+        this.$emit('add_note', note)
+      }
+    }
 	}
 </script>

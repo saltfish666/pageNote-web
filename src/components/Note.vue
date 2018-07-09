@@ -2,7 +2,7 @@
     <div class="container">
         <Cards :notes="notes" @change_note="changeNote"
                @del_note="delNote"/>
-        <Add/>
+        <Add @add_note="addNote"/>
     </div>
 </template>
 
@@ -14,12 +14,7 @@
     name: 'Note',
     data () {
       return {
-        notes:[],
-
-        willAddDomain:null,
-        willAddPath:null,
-        willAddContent:null
-
+        notes:[]
       }
     },
     components: {
@@ -41,6 +36,33 @@
           path: this.notes[index].path,
           content
         }
+      },
+      addNote(note){
+        this.notes.push(note)
+
+        let token = 'ed99b727dffb4ae316acedff20578a3220342cae'
+        let url = 'https://api.pagenote.xyz/note?'
+        let params = {
+          domain: note.domain,
+          path: note.path,
+          content: note.content
+        }
+        for(let key in params){
+            url += `&${key}=${params[key]}`
+        }
+        let options = {
+            method: 'post',
+            url: url,
+            headers: {
+              Authorization: 'token ' + token
+            }
+        }
+        axios(options)
+        .then( res => {
+          console.log(res)
+        }).catch( err => {
+          console.log(err)
+        })
       },
       delNote (index) {
         this.notes.splice(index, 1)
