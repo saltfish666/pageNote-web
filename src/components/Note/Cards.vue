@@ -1,23 +1,31 @@
-    <template>
-    <div class="container">
-      <div class="row">
-        <div class="col-sm">
-          <p>notes is: {{notes}}</p>
-          <p>{{notes[0]}}</p>
-          <Card :note="notes[0]"/><!-- https://stackoverflow.com/questions/51231445/props-became-undefined-during-props -->
-          <Card :note="this.notes[0]"/>
-        </div>
+<template>
+<div class="container">
+  <div v-for="group in notes_groups">
+    <div class="row">
+      <div class="col-sm">
+       <Card :note="group[0]"/>
+      </div>
+      <div class="col-sm">
+       <Card :note="group[1]"/>
       </div>
     </div>
-    </template>
+  </div>
+</div>
+</template>
 
-    <script type="text/javascript">
-      import Card from './Card/Card.vue'
-      export default {
-        name: 'Card',
-        props: ["notes"],
-        components: {
-          Card
-        }
+<script type="text/javascript">
+  import Card from './Card/Card.vue'
+  import groups from 'in-groups-of'
+  export default {
+    name: 'Cards',
+    props: ["notes"],
+    computed: {
+      notes_groups:function() {
+        return groups(this.notes,2)
       }
-    </script>
+    },
+    components: {
+      Card
+    }
+  }
+</script>

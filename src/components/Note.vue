@@ -12,7 +12,7 @@
               {{note.content}}
             </div>
         </div> -->
-        <Cards v-bind:notes="notes"/>
+        <Cards :notes="notes"/>
         <!-- <Add/> -->
     </div>
 </template>
@@ -28,6 +28,22 @@
         notes:[{
           domain:"https://youtube.com",
           path:'watch?weqweqwe',
+          content:"hi, it is pageNote"
+        },{
+          domain:"https://github.com",
+          path:'saltfish666/pageNote',
+          content:"hi, it is pageNote"
+        },{
+          domain:"https://github.com",
+          path:'saltfish666/pageNote',
+          content:"hi, it is pageNote"
+        },{
+          domain:"https://github.com",
+          path:'saltfish666/pageNote',
+          content:"hi, it is pageNote"
+        },{
+          domain:"https://github.com",
+          path:'saltfish666/pageNote',
           content:"hi, it is pageNote"
         },{
           domain:"https://github.com",

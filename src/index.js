@@ -12,7 +12,7 @@ import 'bootstrap-vue/dist/bootstrap-vue.css'
 
 Vue.use(BootstrapVue)
 
-Vue.config.productionTip = false
+Vue.config.productionTip = true
 
 const root = document.createElement('div')
 document.body.appendChild(root)

@@ -1,9 +1,6 @@
 ## 技术
-vue + less + webpack
+vue + axios + webpack
 
-## 如何使用
-是否记录查询字符串
-记录那个参数由前端判断
 
 
 
