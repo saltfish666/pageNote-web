@@ -3,7 +3,7 @@
         <div class="card-header smaller-header">
           {{note.domain}} 
           <button @click="editable" class="btn btn-info smaller-btn">{{contentEditable ? "finish" : "edit"}}</button>
-          <a :href="url">
+          <a :href="url" target="_blank">
               <button class="btn btn-visit smaller-btn">visit</button>
             </a>
           <button @click="delNote" class="btn btn-danger smaller-btn">delete</button>
@@ -29,7 +29,11 @@
     },
     computed:{
       url: function(){
-        return this.note.domain + '/' + this.note.path
+        if(/http:/.test(this.note.domain)){
+          return this.note.domain + this.note.path
+        } else {
+          return 'http://' + this.note.domain + this.note.path
+        }
       }
     },
     methods: {
@@ -60,7 +64,6 @@
         axios(options)
         .then( res => {
           console.log(res)
-          console.log(111)
         }).catch( err => {
           console.log(err)
         })
