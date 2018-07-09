@@ -3,11 +3,11 @@
   <div v-for="(group, i) in notes_groups">
     <div class="row">
       <div class="col-sm">
-       <Card :note="group[0]" :index="i" 
+       <Card :note="group[0]" :index="i * 2" 
              @change_note="change_note"  @del_note="delNote"/>
       </div>
       <div class="col-sm">
-       <Card v-if="group[1]" :note="group[1]" :index="i"
+       <Card v-if="group[1]" :note="group[1]" :index="i * 2 + 1"
              @change_note="change_note"  @del_note="delNote"/>
       </div>
     </div>
@@ -32,7 +32,6 @@
       },
       delNote (index) {
         this.$emit('del_note', index)
-        console.log(222)
       }
     },
     components: {
