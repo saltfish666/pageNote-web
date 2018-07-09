@@ -3,10 +3,12 @@
   <div v-for="(group, i) in notes_groups">
     <div class="row">
       <div class="col-sm">
-       <Card :note="group[0]" :index="i" @change_note="change_note"/>
+       <Card :note="group[0]" :index="i" 
+             @change_note="change_note"  @del_note="delNote"/>
       </div>
       <div class="col-sm">
-       <Card :note="group[1]" :index="i"/>
+       <Card v-if="group[1]" :note="group[1]" :index="i"
+             @change_note="change_note"  @del_note="delNote"/>
       </div>
     </div>
   </div>
@@ -27,6 +29,10 @@
     methods:{
       change_note(index,content){
         this.$emit("change_note",index,content)
+      },
+      delNote (index) {
+        this.$emit('del_note', index)
+        console.log(222)
       }
     },
     components: {

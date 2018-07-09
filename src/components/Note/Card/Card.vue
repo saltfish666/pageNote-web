@@ -37,7 +37,9 @@
         this.contentEditable = !this.contentEditable
         this.$emit("change_note",this.index,this.content)
       },
-      delNote () {
+      delNote (e) {
+        e.preventDefault()
+
         let token = 'ed99b727dffb4ae316acedff20578a3220342cae'
         let url = 'https://api.pagenote.xyz/note?'
         let params = {
@@ -54,10 +56,11 @@
               Authorization: 'token ' + token
             }
         }
+        this.$emit('del_note', this.index)
         axios(options)
         .then( res => {
           console.log(res)
-          //this.$emit('del_note', index)
+          console.log(111)
         }).catch( err => {
           console.log(err)
         })

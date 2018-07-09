@@ -1,6 +1,7 @@
 <template>
     <div class="container">
-        <Cards :notes="notes" @change_note="changeNote"/>
+        <Cards :notes="notes" @change_note="changeNote"
+               @del_note="delNote"/>
         <Add/>
     </div>
 </template>
@@ -40,6 +41,9 @@
           path: this.notes[index].path,
           content
         }
+      },
+      delNote (index) {
+        this.notes.splice(index, 1)
       }
     },
     created (){
