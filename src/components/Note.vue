@@ -1,19 +1,7 @@
 <template>
     <div class="container">
-        <!-- <div v-for="note in notes" class="panel">
-            <div class="panel-title">
-                {{note.domain}}/{{note.path}}
-              <a :href="note.domain + '/' + note.path">
-                <button class="btn btn-default">visit</button>
-              </a>
-            </div>
-
-            <div class="panel-body">
-              {{note.content}}
-            </div>
-        </div> -->
-        <Cards :notes="notes"/>
-        <!-- <Add/> -->
+        <Cards :notes="notes" @change_note="changeNote"/>
+        <Add/>
     </div>
 </template>
 
@@ -69,6 +57,13 @@
           path:this.willAddPath,
           content:this.willAddContent
         })
+      },
+      changeNote(index, content){
+        this.notes[index] = {
+          domain: this.notes[index].domain,
+          path: this.notes[index].path,
+          content
+        }
       }
     },
     updated () {
