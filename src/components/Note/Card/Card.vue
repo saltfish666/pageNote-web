@@ -4,7 +4,7 @@
           {{note.domain}} 
           <button @click="editable" class="btn btn-info smaller-btn">{{contentEditable ? "finish" : "edit"}}</button>
           <a :href="url">
-              <button class="btn btn-primary smaller-btn">visit</button>
+              <button class="btn btn-visit smaller-btn">visit</button>
             </a>
         </div>
         <div class="card-body smaller-body">
@@ -55,5 +55,10 @@
   }
   .smaller-title {
     margin-bottom: 0.3rem;
+  }
+  .btn-visit {
+    color: #fff;
+    background-color: #00ccff;
+    border-color: #00ccff;
   }
 </style>

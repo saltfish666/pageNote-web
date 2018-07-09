@@ -13,31 +13,7 @@
     name: 'Note',
     data () {
       return {
-        notes:[{
-          domain:"https://youtube.com",
-          path:'watch?weqweqwe',
-          content:"hi, it is pageNote"
-        },{
-          domain:"https://github.com",
-          path:'saltfish666/pageNote',
-          content:"hi, it is pageNote"
-        },{
-          domain:"https://github.com",
-          path:'saltfish666/pageNote',
-          content:"hi, it is pageNote"
-        },{
-          domain:"https://github.com",
-          path:'saltfish666/pageNote',
-          content:"hi, it is pageNote"
-        },{
-          domain:"https://github.com",
-          path:'saltfish666/pageNote',
-          content:"hi, it is pageNote"
-        },{
-          domain:"https://github.com",
-          path:'saltfish666/pageNote',
-          content:"hi, it is pageNote"
-        }],
+        notes:[],
 
         willAddDomain:null,
         willAddPath:null,
@@ -65,6 +41,25 @@
           content
         }
       }
+    },
+    created (){
+      let token = 'ed99b727dffb4ae316acedff20578a3220342cae'
+      let url = 'https://api.pagenote.xyz/note?'
+ 
+      let options = {
+        method: 'get',
+        url: url,
+        headers: {
+          Authorization: 'token ' + token
+        }
+      }
+      axios(options)
+      .then( (res) => {
+        console.log(res)
+        this.notes = res.data
+      }).catch( (err) => {
+        console.log(err)
+      })
     },
     updated () {
 
