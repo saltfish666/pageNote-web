@@ -6,7 +6,7 @@
           <a :href="url">
               <button class="btn btn-visit smaller-btn">visit</button>
             </a>
-          <button class="btn btn-danger smaller-btn">delete</button>
+          <button @click="delNote" class="btn btn-danger smaller-btn">delete</button>
         </div>
         <div class="card-body smaller-body">
           <h5 class="card-title smaller-title">{{note.path}}</h5>
@@ -17,6 +17,7 @@
 </template>
 
 <script type="text/javascript">
+  import axios from 'axios'
 	export default {
 		name: 'Card',
 		props: ["note", "index"],
@@ -35,6 +36,31 @@
       editable () {
         this.contentEditable = !this.contentEditable
         this.$emit("change_note",this.index,this.content)
+      },
+      delNote () {
+        let token = 'ed99b727dffb4ae316acedff20578a3220342cae'
+        let url = 'https://api.pagenote.xyz/note?'
+        let params = {
+          domain: this.note.domain,
+          path: this.note.path
+        }
+        for(let key in params){
+            url += `&${key}=${params[key]}`
+        }
+        let options = {
+            method: 'delete',
+            url: url,
+            headers: {
+              Authorization: 'token ' + token
+            }
+        }
+        axios(options)
+        .then( res => {
+          console.log(res)
+          //this.$emit('del_note', index)
+        }).catch( err => {
+          console.log(err)
+        })
       }
     }
 
