@@ -41,7 +41,7 @@
       addNote(note){
         this.notes.push(note)
 
-        let token = 'ed99b727dffb4ae316acedff20578a3220342cae'
+        let token = localStorage.__token
         let url = 'https://api.pagenote.xyz/note?'
         let params = {
           domain: note.domain,
@@ -70,7 +70,7 @@
       }
     },
     created (){
-      let token = 'ed99b727dffb4ae316acedff20578a3220342cae'
+      let token = localStorage.__token
       let url = 'https://api.pagenote.xyz/note?'
 
       let options = {

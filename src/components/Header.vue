@@ -2,7 +2,7 @@
     <header>
         <div v-if="is_login">
             <img src="/imgs/logo.png" class="img-fluid smaller">
-            <span class="bigger">hello {{user.name}} {{isLogin}}</span>
+            <span class="bigger">hello, {{user.name}}</span>
         </div>
         <div v-else>
             <div class="alert alert-danger" role="alert">
@@ -18,13 +18,9 @@
 <script>
   export default {
     name: 'Note',
-    props:['is_login'],
+    props:['is_login','user'],
     data () {
       return {
-        user:{
-          name:"lishuai",
-          email:"overwall2016@gmail.com"
-        }
       }
     },
     methods: {

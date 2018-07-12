@@ -10,7 +10,7 @@
     "test": "eslint .",
     "initcz": "commitizen init cz-conventional-changelog --save --save-exact",
     "watch": "cross-env NODE_ENV=development webpack --watch",
-    "rsync": "rsync -zaP ./index.html ./dist ./favicon.ico root@178.128.0.181:/root/nj/pageNote-web-vue/"
+    "rsync": "rsync -zaP ./index.html ./dist ./favicon.ico ./imgs root@178.128.0.181:/root/nj/pageNote-web-vue/"
   },
   "dependencies": {
     "axios": "^0.18.0",
