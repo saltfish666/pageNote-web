@@ -12,6 +12,7 @@
   import axios from 'axios'
   export default {
     name: 'Note',
+    props:['isLogin'],
     data () {
       return {
         notes:[]
@@ -71,7 +72,7 @@
     created (){
       let token = 'ed99b727dffb4ae316acedff20578a3220342cae'
       let url = 'https://api.pagenote.xyz/note?'
- 
+
       let options = {
         method: 'get',
         url: url,

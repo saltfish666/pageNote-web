@@ -1,7 +1,7 @@
 <template>
     <div class="container">
-        <!-- <Header></Header> -->
-        <Note></Note>
+        <Header :is_login="isLogin"></Header>
+        <Note v-if="isLogin"  :isLogin:="isLogin"></Note>
         <!--<router-view/>-->
     </div>
 </template>
@@ -16,7 +16,8 @@
     name: 'App',
     data () {
       return {
-        ifShowNote: false
+        ifShowNote: false,
+        isLogin: true
       }
     },
     router:HelloWorld,
